@@ -1,10 +1,10 @@
 import '../App.css';
 
-function CartWidget() {
+function CartWidget({numero}) {
   return (
     <div className="cart">
     <box-icon name="cart"></box-icon>
-    <span className="item__total">4</span>
+    {numero}
     </div>
 )};
 

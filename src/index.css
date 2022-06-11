@@ -17,3 +17,21 @@ code {
   height: 100px;
   cursor: pointer;
 }
+
+.Card{
+  display: block;
+  width: 15rem;
+  margin: auto;
+  height: auto;
+  border-radius: 5px;
+  padding: auto;
+  
+}
+
+.map{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}

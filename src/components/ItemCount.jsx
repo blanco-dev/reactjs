@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({initial, max, onAdd}) => {
+const ItemCount = ({initial, numero, onAdd}) => {
     const [count, setCount] = useState(initial)
     const sumar = () => {
-        if (count < max ) {
+        if (count < numero ) {
             setCount(count + 1)
         } else {
             alert("No puedes agregar mas productos")
