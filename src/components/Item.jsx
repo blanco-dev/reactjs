@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
 
-const Item = ({producto})=>{
+const Item = ({producto, numero, onAdd, initial})=>{
     const {image,title,description,price}=producto
-    
-
+    const [count, setCount] = useState(initial)
+    const sumar = () => {
+      if (count < numero ) {
+          setCount(count + 1)
+      } else {
+          alert("Has añadido 1 elemento al carrito")
+      }
+  }
   return (
 
     <Card className='Card' >
@@ -17,7 +23,7 @@ const Item = ({producto})=>{
       <Card.Text className='text'>
       $ {price}
       </Card.Text>
-      <Button  className='btn btn-dark' variant="primary">ver detalles</Button>
+      <button onClick={sumar}>Agregar al carrito</button>
     </Card.Body>
     </Card>
     )

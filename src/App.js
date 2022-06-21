@@ -9,9 +9,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemList from './components/ItemList';
 
 function App() {
-  const onAdd = (count) => {
-    alert(`sumaste ${count} productos`)
-  }
+
   return (
     <BrowserRouter>
       <NavBar />

@@ -40,7 +40,7 @@ function ItemListContainer(props) {
 
     return (
         <>
-        <div > {loading && 'loding..'}</div>
+        <div > {loading && 'loading..'}</div>
         <div > {error && 'hubo error en el pago'}</div>
     
         <div>
