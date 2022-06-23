@@ -1,54 +1,50 @@
-import React,{useEffect, useState} from 'react';
-import ItemList from './ItemList';
-import Imagenes from '../assets/Imagenes';
+import { useEffect, useState } from "react";
+import Alert from "./Alert";
+import ItemList from "./ItemList";
 
+const ItemListContainer = ({ clothes }) => {
+  const [clothesList, setClothesList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState(false);
 
-function ItemListContainer(props) {
-    
-    const[loading,setLoanding]=useState(true);
-    const[error,setError]=useState(false);
-    const[producto,setproducto]=useState([]);
-    useEffect(() => {
-        setproducto([]);
-        setLoanding(true);
-        setError(error); 
-     const articulos = new Promise((res,)=>{
-            setTimeout(()=>{
-            res([{category:"remeras", id:'1', title:'pack conjunto',  description:'conjunto de remera + zapatillas',  price:5000,  image:(Imagenes.img1) },
-            {category:"remeras", id:'2', title:'remera linda',  description:'remera',  price:2000,  image:(Imagenes.img1) },
-            {category:"remeras", id:'3', title:'remera no linda',  description:'conjunto de remera',  price:500,  image:(Imagenes.img1) },
-            {category:"remeras", id:'4', title:'2 remeras',  description:'2 remeras',  price:2500,  image:(Imagenes.img4) },
-            {category:"remeras", id:'5', title:'zapatos y lentes',  description:'zapatos y lentes',  price:500,  image:(Imagenes.img5) }])
-        }, 2000);
+  useEffect(() => {
+    const clothePromise = new Promise((res, rej) => {
+      setLoading(true);
+      setTimeout(() => {
+        res(clothes);
+      }, 800);
     });
-       
-    articulos
-     .then((result)=>{
-         setproducto(result);
-         
+
+    clothePromise
+      .then((result) => {
+        setClothesList(result);
       })
-      .catch((error)=>{
-         setError(error);
-         
+      .catch((error) => {
+        setAlert(true);
+        console.log(error);
       })
-      .finally(()=>{
-          setLoanding(false);
+      .finally(() => {
+        setLoading(false);
       });
- }, []);
+  }, [clothes]);
 
-
-
-    return (
-        <>
-        <div > {loading && 'loading..'}</div>
-        <div > {error && 'hubo error en el pago'}</div>
-    
-        <div>
-            <ItemList producto={producto} />
-     </div>
-        
-        </>
-    )
+  return (
+    <>
+      {loading ? (
+        <div className="d-flex align-items-center justify-content-center">
+          <span className="me-4">Cargando...</span>
+          <div
+            className="spinner-grow shadow-lg "
+            role="status"
+          ></div>
+        </div>
+      ) : alert ? (
+        <Alert type="danger">Error</Alert>
+      ) : (
+        <ItemList clothesList={clothesList} />
+      )}
+    </>
+  );
 };
 
 export default ItemListContainer;

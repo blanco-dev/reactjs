@@ -1,28 +1,33 @@
-import NavBar from './components/NavBar';
-import "boxicons";
-import CartWidget from './components/CartWidget';
-import ItemListContainer from './components/ItemListContainer';
-import React, {useCallback, useEffect, useState} from "react";
-import ItemCount from './components/ItemCount';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CartDetailPage from './components/CartDetailPage';
+import Home from './components/Home';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemList from './components/ItemList';
+import NavBar from './components/NavBar';
+import NotFound from './components/NotFound';
+import Category from './components/Category';
+import Footer from './components/Footer';
+
+import CartContextProvider from './context/CartContextProvider';
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<ItemCount />}/>
-        <Route path='/productos' element={<ItemListContainer />}/>
-        <Route path='/sobrenosotros' element={<ItemCount />}/>
-      </Routes>
-    </BrowserRouter>
-  // <><NavBar /> 
-  // <ItemListContainer /> 
-  // {/* <ItemCount initial={1} numero={10} onAdd={onAdd} /> */}
-  )
-};
+    <>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/category/:id" element={<Category />} />
+            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<CartDetailPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </CartContextProvider>
+    </>
+  );
+}
 
 export default App;

@@ -1,29 +1,27 @@
-import React from 'react'
-import ItemDetail from './ItemDetail'
-import { useEffect, useState } from 'react'
+import { useContext } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContextProvider";
+import ItemDetail from "./ItemDetail";
 
-export default function ItemDetailContainer() {
-  const [character, setCharacter ] = useState({});
-  const initialUrl = 'https://rickandmortyapi.com/api/character';
-  
-  const fetchCharacters = (url)=>{
-    fetch(url)
-    .then((Response)=>Response.json())
-    .then((data)=>setCharacter(data.results[5]))
-    .catch(error=>console.log(error))
- };
+const ItemDetailContainer = () => {
+  const { findClothe, getCategories } = useContext(CartContext);
+  const [singleClothe, setSingleClothe] = useState({});
 
- useEffect(()=>{
-     setTimeout(() => {
-        fetchCharacters(initialUrl);
-     }, 2000);
- },[])
-  
-    return (
-     <>
-        <div className='container mt-5'>
-        { (character.id ?? null) ? <ItemDetail character={character}/> : ''}
-        </div>
-     </>
-  )
-}
+  const { id } = useParams();
+
+  useEffect(() => {
+    setSingleClothe(findClothe(id));
+  }, [id]);
+
+  return (
+    <div className="container top-to-navbar-2">
+      <div className="row">
+        {getCategories()}
+        <ItemDetail singleClothe={singleClothe} />
+      </div>
+    </div>
+  );
+};
+
+export default ItemDetailContainer;

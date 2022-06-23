@@ -1,37 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap');
+
+/* General tags and general styles */
+:root {
+  font-size: 18px;
+  --background: #1d1d1d;
+  --dark: #0e0e0e;
+  --text-primary: #f8F8F8;
+  --text-secondary: #FFE53B;
+  --orange: #F76B1C;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 4rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* width */
+.list-clothes::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+.list-clothes::-webkit-scrollbar-thumb {
+  background: #434B6C;
+  border-radius: 4rem;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-size: 1rem;
+  font-family: 'Oswald', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
 }
 
-.cart {
-  color: blue;
-  height: 100px;
-  cursor: pointer;
+h2 {
+  font-weight: bold;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+table td{
+  font-weight: 300;
+}
+.top-to-navbar-2 {
+  padding-top: calc(2rem + 81px);
 }
 
-.Card{
-  display: block;
-  width: 15rem;
-  margin: auto;
-  height: auto;
-  border-radius: 5px;
-  padding: auto;
-  
+.top-to-navbar-6 {
+  padding-top: calc(6rem + 81px);
 }
 
-.map{
+.btn-outline-accent {
+  letter-spacing: 2px;
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+.btn-outline-accent:hover {
+  background: var(--orange);
+  color: var(--background);
+}
+
+.btn-outline-yellow {
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  border-color: var(--text-secondary);
+}
+
+.btn-outline-yellow:hover {
+  background: var(--text-secondary);
+  color: var(--background);
+}
+
+.btn-outline-accent:disabled {
+  color: gray;
+  border-color: gray;
+}
+
+.bg-orange {
+  background: var(--orange) !important;
+}
+
+.text-orange {
+  color: var(--orange);
+}
+
+.text-color-background {
+  color: var(--background) !important;
+}
+
+.badge {
+  opacity: 0.8;
+}
+
+.badge:hover {
+  opacity: 0.8;
+}
+
+/* Navbar */
+#navbar {
+  background: #161616d9;
+  box-shadow: 0px 5px 10px #00000021;
+}
+
+.navbar-scroll.navbar-white-gray {
+  background-color: var(--background);
+  box-shadow: 0px 5px 10px #00000021;
+}
+
+.nav-link,
+.navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+.nav-link-category {
+  color: var(--accent) !important;
+}
+
+.dropdown-menu {
+  background-color: var(--background);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  text-transform: capitalize;
+  position: relative;
+  color: var(--text-primary) !important;
+  background-color: transparent !important;
+  opacity: .8;
+}
+
+.dropdown-item:before,
+.dropdown-item:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 5px;
+  border-radius: 15px;
+  transition: width .6s;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  opacity: 1;
+}
+
+.dropdown-item:focus:before,
+.dropdown-item:hover:before {
+  width: 70%;
+}
+
+@media (min-width: 992px) {
+  .grow {
+    transform: all .3s;
+  }
+
+  .grow:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Main section */
+.box {
+  background-color: var(--dark);
+  transition: all 0.3s;
+  box-shadow: 0px 5px 10px #00000021;
+  min-height: 600px;
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
- 
+  flex-direction: column;
+  border-radius: 25px;
+}
+
+.box .box-header {
+  position: absolute;
+  overflow: hidden;
+  height: 35%;
+  transition: all 0.3s;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.box .box-image img {
+  transition: all 0.3s;
+  width: 100%;
+  height: 100%;
+}
+
+.box .box-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 65%;
+  position: absolute;
+  top: 35%;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.box .box-body .btn-more-info {
+  display: none;
+}
+
+.box .box-body:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  height: 30px;
+  width: 100%;
+  left: 0;
+}
+
+.box .box-body .clothe-title {
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.3rem;
+}
+
+.box .box-body .clothe-desc {
+  font-size: 0.9rem;
+  color: var(--orange);
+}
+
+.box .box-body .clothe-date {
+  font-size: 0.7rem;
+}
+
+.box .box-body .clothe-info {
+  font-size: 0.8rem;
+  text-align: justify;
+  height: 0;
+  overflow: hidden;
+}
+
+.box .box-body .clothe-stock {
+  font-weight: 100;
+  font-size: 0.8rem;
+  opacity: 0.3;
+  letter-spacing: 2px;
+}
+
+.box .box-body .item-count {
+  background-color: var(--background);
+  border-radius: 25px;
+}
+
+.item-count button {
+  width: 15%;
+  padding: 0;
+  border: none;
+  height: 30px;
+  color: black;
+  font-weight: bold;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  justify-content: center;
+}
+
+.item-count input {
+  width: 70%;
+  padding: 0;
+  height: 30px;
+  text-align: center;
+  border: none;
+  color: var(--orange);
+  background-color: transparent;
+}
+
+.item-count input:focus,
+.item-count input:hover {
+  outline: none;
+}
+
+.box:hover {
+  box-shadow: 0px 5px 10px #00000021;
+}
+
+.box:hover .box-body .btn-more-info {
+  display: block;
+}
+
+.box:hover .box-header img {
+  filter: blur(4px);
+}
+
+.box:hover .box-header {
+  height: 10%;
+}
+
+.box:hover .box-body {
+  height: 90%;
+  top: 10%;
+}
+
+.box:hover .box-body .clothe-info {
+  max-height: 6rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.col-12:nth-child(odd) .box:hover {
+  transform: scale(1.03);
+}
+
+.col-12:nth-child(even) .box:hover {
+  transform: scale(1.03);
+}
+
+
+/* Footer */
+footer {
+  background: #F76B1C;
+  font-weight: 200;
+}
+
+footer .nav-link {
+  color: #F76B1C;
+  font-weight: 500;
+  text-transform: capitalize;
 }
