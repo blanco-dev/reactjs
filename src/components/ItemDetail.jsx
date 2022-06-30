@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContextProvider";
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ singleClothe }) => {
+const ItemDetail = ({ singleBook }) => {
   const { addItem, isInCart } = useContext(CartContext);
-  const { id, name, photo, desc, price, info, stock, categories } = singleClothe;
+  const { id, name, photo, author, date, price, info, stock, categories } =
+    singleBook;
   const [inputNumber, setInputNumber] = useState(0);
   const [buttonDisplay, setButtonDisplay] = useState(true);
 
@@ -24,15 +25,17 @@ const ItemDetail = ({ singleClothe }) => {
       setInputNumber(inputNumber + 1);
     }
   };
+  // para controlarlo con el teclado al input number
   const handleChange = (e) => {
     if (e > 0 && e <= stock) {
+      // me di cuenta que si lo accionas con el teclado lo pasa como string, asi que lo convierto con Number()
       setInputNumber(Number(e));
     }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputNumber > 0) {
-      addItem(singleClothe, inputNumber);
+      addItem(singleBook, inputNumber);
       setButtonDisplay(false);
     }
   };
@@ -50,7 +53,8 @@ const ItemDetail = ({ singleClothe }) => {
       <div className="col-12 col-md-8">
         <h2>{name}</h2>
         <hr />
-        <p>{desc}</p>
+        <p>{author}</p>
+        <p>{date}</p>
         <cite>{info}</cite>
         <h4 className="my-3">${price}</h4>
         <div className="mt-3">
@@ -61,12 +65,12 @@ const ItemDetail = ({ singleClothe }) => {
                 key={index}
                 className="badge grow rounded-pill bg-gradient me-2"
               >
-                <a
-                  href={`/category/${category}`}
+                <Link
+                  to={`/category/${category}`}
                   className="text-color-background p-2"
                 >
                   {category}
-                </a>
+                </Link>
               </span>
             ))}
         </div>
@@ -82,20 +86,20 @@ const ItemDetail = ({ singleClothe }) => {
               <input
                 type="submit"
                 className="btn btn-outline-accent rounded-pill mt-2 w-100"
-                value="Añadir al carrito"
+                value="Add to cart"
               />
             </div>
           </form>
         ) : stock <= 0 ? (
-          <h4 className="mt-4">Sin stock</h4>
+          <h4 className="mt-4">Without Stock</h4>
         ) : (
           <div className="mt-4">
-            <h4 className="text-center">Este articulo esta en el carrito</h4>
+            <h4 className="text-center">This book is in the cart</h4>
             <Link
               className="btn btn-outline-accent rounded-pill mt-2 w-100"
               to="/cart"
             >
-              Ir al carrito
+              Go to Cart Page
             </Link>
           </div>
         )}

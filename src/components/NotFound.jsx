@@ -7,9 +7,13 @@ const NotFound = () => {
       <div className="row">
         <div className="col-12 text-center">
           <img src={png_404} alt="404 icon" className="img-fluid" />
-          <h4 className="mb-4">PÁGINA NO ENCONTRADA</h4>
+          <h4 className="mb-4">uh-oh! Page not found</h4>
+          <div>
+            <cite>"Not all those who wander are lost."</cite>
+            <p> - J.R.R. Tolkien, The Fellowship of the Ring</p>
+          </div>
           <Link className="btn btn-outline-accent mt-3" to="/">
-            Volver al inicio
+            Return to homepage
           </Link>
         </div>
       </div>

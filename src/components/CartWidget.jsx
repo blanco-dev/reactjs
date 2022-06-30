@@ -20,7 +20,7 @@ const CartWidget = () => {
         {quantityCart() > 0 && (
           <span className="position-absolute top-0 translate-middle badge rounded-pill bg-orange text-color-background">
             {quantityCart()}
-            <span className="visually-hidden">items en el carrito</span>
+            <span className="visually-hidden">num items in cart</span>
           </span>
         )}
       </div>

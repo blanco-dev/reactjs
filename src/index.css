@@ -8,6 +8,8 @@
   --text-primary: #f8F8F8;
   --text-secondary: #FFE53B;
   --orange: #F76B1C;
+  --gradient: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+  --gradient2: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
 }
 
 input::-webkit-outer-spin-button,
@@ -38,12 +40,12 @@ input[type=number] {
 }
 
 /* width */
-.list-clothes::-webkit-scrollbar {
+.list-books::-webkit-scrollbar {
   width: 5px;
 }
 
 /* Handle */
-.list-clothes::-webkit-scrollbar-thumb {
+.list-books::-webkit-scrollbar-thumb {
   background: #434B6C;
   border-radius: 4rem;
 }
@@ -71,9 +73,11 @@ h2 {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-table td{
+
+table td {
   font-weight: 300;
 }
+
 .top-to-navbar-2 {
   padding-top: calc(2rem + 81px);
 }
@@ -107,6 +111,10 @@ table td{
 .btn-outline-accent:disabled {
   color: gray;
   border-color: gray;
+}
+
+.bg-gradient {
+  background: var(--gradient) !important;
 }
 
 .bg-orange {
@@ -169,6 +177,7 @@ table td{
   bottom: 0;
   width: 0%;
   height: 5px;
+  background: var(--gradient);
   border-radius: 15px;
   transition: width .6s;
 }
@@ -209,6 +218,7 @@ table td{
   position: absolute;
   overflow: hidden;
   height: 35%;
+  width: 100%;
   transition: all 0.3s;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -243,33 +253,34 @@ table td{
   position: absolute;
   top: -30px;
   height: 30px;
+  background: linear-gradient(0deg, rgba(14, 14, 14, 1) 0%, rgba(130, 44, 104, 0) 100%);
   width: 100%;
   left: 0;
 }
 
-.box .box-body .clothe-title {
+.box .box-body .book-title {
   font-size: 1.3rem;
   letter-spacing: 3px;
   margin-bottom: 0.3rem;
 }
 
-.box .box-body .clothe-desc {
+.box .box-body .book-author {
   font-size: 0.9rem;
   color: var(--orange);
 }
 
-.box .box-body .clothe-date {
+.box .box-body .book-date {
   font-size: 0.7rem;
 }
 
-.box .box-body .clothe-info {
+.box .box-body .book-info {
   font-size: 0.8rem;
   text-align: justify;
   height: 0;
   overflow: hidden;
 }
 
-.box .box-body .clothe-stock {
+.box .box-body .book-stock {
   font-weight: 100;
   font-size: 0.8rem;
   opacity: 0.3;
@@ -331,7 +342,7 @@ table td{
   top: 10%;
 }
 
-.box:hover .box-body .clothe-info {
+.box:hover .box-body .book-info {
   max-height: 6rem;
   height: 100%;
   overflow-y: auto;
@@ -345,15 +356,28 @@ table td{
   transform: scale(1.03);
 }
 
+.checkout input,
+.checkout input:focus{
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--orange);
+  border-radius: 0;
+  color: var(--orange);
+}
+.checkout input:focus{
+  box-shadow: 0 0 0 0.15rem rgb(247 107 28 / 10%);
+  border-bottom: 3px solid var(--orange);
+}
 
 /* Footer */
 footer {
-  background: #F76B1C;
+  background: var(--gradient);
+  color: var(--background);
   font-weight: 200;
 }
 
 footer .nav-link {
-  color: #F76B1C;
+  color: var(--background) !important;
   font-weight: 500;
   text-transform: capitalize;
 }

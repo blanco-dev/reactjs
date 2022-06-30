@@ -11,9 +11,9 @@ const Footer = () => {
       <footer className="py-3 mt-5">
         <ul className="nav justify-content-center border-bottom pb-3 mb-3">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="./">
-              Inicio
-            </a>
+            <Link className="nav-link active" aria-current="page" to="./">
+              Home
+            </Link>
           </li>
           {categories.length > 0 &&
             categories.map((category, index) => (
@@ -25,7 +25,7 @@ const Footer = () => {
             ))}
         </ul>
         <p className="text-center">
-          © <b>No tan Distinto</b>
+          <b>No tan Distinto</b>
         </p>
       </footer>
     </div>

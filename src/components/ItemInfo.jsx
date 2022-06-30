@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
   const [inputNumber, setInputNumber] = useState(0);
@@ -14,8 +15,10 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
     }
   };
 
+  // para controlarlo con el teclado al input number
   const handleChange = (e) => {
     if (e >= 0 && e <= stock) {
+      // me di cuenta que si lo accionas con el teclado lo pasa como string, asi que lo convierto con Number()
       setInputNumber(Number(e));
     }
   };
@@ -59,17 +62,23 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
           </button>
         </div>
       )}
+      <Link
+        to={`/item/${id}`}
+        className="btn btn-more-info btn-outline-yellow btn-sm rounded-pill mt-2 w-100"
+      >
+        More Info
+      </Link>
       {buttonDisplay && (
         <>
           <input
             type="submit"
             className="btn btn-outline-accent rounded-pill mt-2 w-100"
             disabled={stock === 0 && "disabled"}
-            value="Añadir al carrito"
+            value="Add to cart"
             onClick={(e) => handleSubmit(e)}
           />
 
-          <p className="clothe-stock mt-1">
+          <p className="book-stock mt-1">
             Stock:{" "}
             <span className={stock > 0 ? "text-success" : "text-danger"}>
               {" "}
@@ -79,7 +88,7 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
         </>
       )}
 
-      {!buttonDisplay && <div className="mt-3">Este articulo esta en el carrito</div>}
+      {!buttonDisplay && <div className="mt-3">This book is in the cart</div>}
     </form>
   );
 };

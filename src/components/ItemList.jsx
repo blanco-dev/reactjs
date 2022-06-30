@@ -1,13 +1,13 @@
 import Item from "./Item"
 
-const ItemList = ({clothesList}) => {
+const ItemList = ({booksList}) => {
   return (
     <>
       {
-        clothesList.map(clothe => (
+        booksList.map(book => (
           <Item
-            key={clothe.id}
-            clothe={clothe}
+            key={book.id}
+            book={book}
           />
         ))
       }

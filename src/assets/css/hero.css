@@ -1,5 +1,4 @@
-.items{
-  background: var(--gradient);
+.hero{
     margin: 0;
     margin-bottom: 2rem;
     display: flex;

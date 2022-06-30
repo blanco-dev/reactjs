@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContextProvider";
 import CartWidget from "./CartWidget";
@@ -15,7 +14,7 @@ const NavBar = () => {
       id="navbar"
     >
       <div className="container">
-        <Link className="navbar-brand" to={"/"}>
+        <Link className="navbar-brand grow" to={"/"}>
           <b>No tan Distinto</b>
         </Link>
         <button
@@ -50,7 +49,7 @@ const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Categorias
+                Categories
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {categories.length > 0 &&
@@ -68,6 +67,11 @@ const NavBar = () => {
             </li>
           </ul>
           <div className="navbar-nav navbar-nav-scroll">
+            <li className="nav-item grow position-relative">
+              <Link to="/orders" className="nav-link grow active">
+                Orders
+              </Link>
+            </li>
             <li className="nav-item grow position-relative">
               <CartWidget />
             </li>

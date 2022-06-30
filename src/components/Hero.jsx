@@ -1,12 +1,12 @@
-import '../assets/css/items.css'
+import '../assets/css/hero.css'
 
-const Items = () => {
+const Hero = () => {
   return (
-    <div className="items top-to-navbar-6">
+    <div className="hero top-to-navbar-6">
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
-            <h2>Mira nuestro catálogo</h2>
+            <h2>Find your favourite books</h2>
           </div>
         </div>
       </div>
@@ -14,4 +14,4 @@ const Items = () => {
   )
 }
 
-export default Items
+export default Hero
