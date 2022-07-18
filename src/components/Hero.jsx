@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
-            <h2>Find your favourite books</h2>
+            <h2>TIENDA ONLINE</h2>
           </div>
         </div>
       </div>

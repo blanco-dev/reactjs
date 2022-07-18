@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// Components
 import CartDetailPage from './components/CartDetailPage';
 import Category from './components/Category';
 import Checkout from './components/Checkout';
@@ -10,7 +9,6 @@ import NavBar from './components/NavBar';
 import NotFound from './components/NotFound';
 import Orders from './components/Orders';
 
-// context
 import CartContextProvider from './context/CartContextProvider';
 
 function App() {

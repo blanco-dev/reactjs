@@ -26,11 +26,11 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div className="container top-to-navbar-2">
+    <div className="container top-to-navbar-2" style={{ minHeight: "80vh" }}>
       <div className="row">
         {loading ? (
           <div className="d-flex align-items-center justify-content-center">
-            <span className="me-4">Loading book...</span>
+            <span className="me-4">Cargando libros..</span>
             <div
               className="spinner-grow bg-gradient shadow-lg "
               role="status"

@@ -27,7 +27,7 @@ const ItemListContainer = ({ categoryProp = null }) => {
     <>
       {loading ? (
         <div className="d-flex align-items-center justify-content-center">
-          <span className="me-4">Loading books...</span>
+          <span className="me-4">Cargando libros...</span>
           <div
             className="spinner-grow bg-gradient shadow-lg "
             role="status"

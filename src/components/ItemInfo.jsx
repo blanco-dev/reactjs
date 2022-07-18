@@ -15,10 +15,10 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
     }
   };
 
-  // para controlarlo con el teclado al input number
+  
   const handleChange = (e) => {
     if (e >= 0 && e <= stock) {
-      // me di cuenta que si lo accionas con el teclado lo pasa como string, asi que lo convierto con Number()
+      
       setInputNumber(Number(e));
     }
   };
@@ -66,7 +66,7 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
         to={`/item/${id}`}
         className="btn btn-more-info btn-outline-yellow btn-sm rounded-pill mt-2 w-100"
       >
-        More Info
+        Más info
       </Link>
       {buttonDisplay && (
         <>
@@ -74,7 +74,7 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
             type="submit"
             className="btn btn-outline-accent rounded-pill mt-2 w-100"
             disabled={stock === 0 && "disabled"}
-            value="Add to cart"
+            value="Añadir al carrito"
             onClick={(e) => handleSubmit(e)}
           />
 
@@ -88,7 +88,15 @@ const ItemInfo = ({ id, stock, buttonDisplay, setQuantity }) => {
         </>
       )}
 
-      {!buttonDisplay && <div className="mt-3">This book is in the cart</div>}
+      {!buttonDisplay && (
+        <div className="mt-3">
+          <h6>Este libro se encuentra en el carrito</h6>
+
+          <Link className="btn text-orange rounded-pill mt-2 w-100" to="/cart">
+            Ir al carrito
+          </Link>
+        </div>
+      )}
     </form>
   );
 };

@@ -25,10 +25,10 @@ const ItemDetail = ({ singleBook }) => {
       setInputNumber(inputNumber + 1);
     }
   };
-  // para controlarlo con el teclado al input number
+  
   const handleChange = (e) => {
     if (e > 0 && e <= stock) {
-      // me di cuenta que si lo accionas con el teclado lo pasa como string, asi que lo convierto con Number()
+
       setInputNumber(Number(e));
     }
   };
@@ -44,9 +44,9 @@ const ItemDetail = ({ singleBook }) => {
       {photo && (
         <div className="col-12 col-md-4">
           <img
-            src={require(`../assets/img/${photo}`)}
+            src={photo}
             alt={name}
-            className="img-thumbnail rounded mx-auto d-block"
+            className="img-thumbnail rounded mx-auto d-block w-100 mb-3 mb-sm-0"
           />
         </div>
       )}
@@ -86,20 +86,20 @@ const ItemDetail = ({ singleBook }) => {
               <input
                 type="submit"
                 className="btn btn-outline-accent rounded-pill mt-2 w-100"
-                value="Add to cart"
+                value="Añadir al carrito"
               />
             </div>
           </form>
         ) : stock <= 0 ? (
-          <h4 className="mt-4">Without Stock</h4>
+          <h4 className="mt-4">Sin stock disponible</h4>
         ) : (
           <div className="mt-4">
-            <h4 className="text-center">This book is in the cart</h4>
+            <h4 className="text-center">Este libro se encuentra en el carrito</h4>
             <Link
               className="btn btn-outline-accent rounded-pill mt-2 w-100"
               to="/cart"
             >
-              Go to Cart Page
+              Ir al carrito
             </Link>
           </div>
         )}

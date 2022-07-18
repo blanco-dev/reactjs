@@ -8,11 +8,11 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h3>Our Books</h3>
+            <h3>Libros</h3>
           </div>
           <hr />
         </div>
-        <div className="row g-3">
+        <div className="row g-3 mt-3">
           <ItemListContainer />
         </div>
       </div>

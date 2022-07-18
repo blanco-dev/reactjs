@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap");
 
 /* General tags and general styles */
 :root {
   font-size: 18px;
   --background: #1d1d1d;
   --dark: #0e0e0e;
-  --text-primary: #f8F8F8;
-  --text-secondary: #FFE53B;
-  --orange: #F76B1C;
-  --gradient: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
-  --gradient2: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+  --text-primary: #f8f8f8;
+  --text-secondary: #ffe53b;
+  --orange: #f76b1c;
+  --gradient: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+  --gradient2: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
 }
 
 input::-webkit-outer-spin-button,
@@ -18,7 +18,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
   /* Firefox */
 }
@@ -46,14 +46,14 @@ input[type=number] {
 
 /* Handle */
 .list-books::-webkit-scrollbar-thumb {
-  background: #434B6C;
+  background: #434b6c;
   border-radius: 4rem;
 }
 
 body {
   margin: 0;
   font-size: 1rem;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
@@ -78,6 +78,11 @@ table td {
   font-weight: 300;
 }
 
+hr {
+  background: white;
+  opacity: 1;
+}
+
 .top-to-navbar-2 {
   padding-top: calc(2rem + 81px);
 }
@@ -88,12 +93,12 @@ table td {
 
 .btn-outline-accent {
   letter-spacing: 2px;
-  color: var(--orange);
-  border-color: var(--orange);
+  color: white;
+  border-color: white;
 }
 
 .btn-outline-accent:hover {
-  background: var(--orange);
+  background: white;
   color: var(--background);
 }
 
@@ -167,19 +172,19 @@ table td {
   position: relative;
   color: var(--text-primary) !important;
   background-color: transparent !important;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .dropdown-item:before,
 .dropdown-item:before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   width: 0%;
   height: 5px;
   background: var(--gradient);
   border-radius: 15px;
-  transition: width .6s;
+  transition: width 0.6s;
 }
 
 .dropdown-item:focus,
@@ -194,7 +199,7 @@ table td {
 
 @media (min-width: 992px) {
   .grow {
-    transform: all .3s;
+    transform: all 0.3s;
   }
 
   .grow:hover {
@@ -251,9 +256,13 @@ table td {
 .box .box-body:before {
   content: "";
   position: absolute;
-  top: -30px;
+  top: -29px;
   height: 30px;
-  background: linear-gradient(0deg, rgba(14, 14, 14, 1) 0%, rgba(130, 44, 104, 0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(14, 14, 14, 1) 0%,
+    rgba(130, 44, 104, 0) 100%
+  );
   width: 100%;
   left: 0;
 }
@@ -297,7 +306,7 @@ table td {
   padding: 0;
   border: none;
   height: 30px;
-  color: black;
+  color: white;
   font-weight: bold;
   color: var(--orange);
   display: flex;
@@ -356,24 +365,48 @@ table td {
   transform: scale(1.03);
 }
 
-.checkout input,
-.checkout input:focus{
-  background-color: transparent;
+.checkout input {
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   border: 0;
   border-bottom: 2px solid var(--orange);
   border-radius: 0;
   color: var(--orange);
 }
-.checkout input:focus{
-  box-shadow: 0 0 0 0.15rem rgb(247 107 28 / 10%);
+.checkout input:-webkit-autofill,
+.checkout input:-webkit-autofill:hover,
+.checkout input:-webkit-autofill:focus,
+.checkout input:focus {
+  -webkit-box-shadow: 0 0 0px 1000px
+    rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) inset;
+  box-shadow: 0 0 0px 1000px rgba(var(--bs-dark-rgb), var(--bs-bg-opacity))
+    inset;
+  transition: background-color 5000s ease-in-out 0s;
+  color: var(--orange);
   border-bottom: 3px solid var(--orange);
+}
+.checkout input:-webkit-autofill,
+.checkout input:-webkit-autofill:hover,
+.checkout input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--orange);
+}
+.checkout img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+.checkout form .errorField {
+  color: #ff2525;
+  font-weight: 200;
+  margin-top: 0.5rem;
+  letter-spacing: 2px;
+  display: block;
 }
 
 /* Footer */
 footer {
-  background: var(--gradient);
-  color: var(--background);
-  font-weight: 200;
+  background: #b19c9c;
+  color: black;
+  font-weight: 350;
 }
 
 footer .nav-link {
